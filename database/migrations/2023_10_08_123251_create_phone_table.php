@@ -13,7 +13,7 @@ class CreatePhoneTable extends Migration
      */
     public function up()
     {
-        Schema::create('phone', function (Blueprint $table) {
+        Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->string('phone_number');
             $table->bigInteger('users_id')->unsigned();
@@ -30,7 +30,7 @@ class CreatePhoneTable extends Migration
      */
     public function down()
     {
-        Schema::table('phone', function (Blueprint $table) {
+        Schema::table('phones', function (Blueprint $table) {
 
             $table->dropForeign(['users_id']);
         });
