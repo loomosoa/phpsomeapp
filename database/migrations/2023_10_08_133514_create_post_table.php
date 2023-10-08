@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhoneTable extends Migration
+class CreatePostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreatePhoneTable extends Migration
      */
     public function up()
     {
-        Schema::create('phones', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('phone_number');
+            $table->string('title');
+            $table->text('text');
+            $table->integer('likes');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
@@ -30,10 +32,11 @@ class CreatePhoneTable extends Migration
      */
     public function down()
     {
-        Schema::table('phones', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
 
             $table->dropForeign(['user_id']);
         });
-        Schema::dropIfExists('phones');
+
+        Schema::dropIfExists('posts');
     }
 }

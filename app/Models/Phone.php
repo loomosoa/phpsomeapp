@@ -18,4 +18,9 @@ class Phone extends Model
         'phone_number',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

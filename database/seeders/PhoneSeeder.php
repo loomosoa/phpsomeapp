@@ -16,12 +16,12 @@ class PhoneSeeder extends Seeder
     public function run()
     {
         $i = 1;
-        for ($i; $i < 10; $i++) {
+        for ($i; $i < 100; $i++) {
             DB::table('phones')->insert([
                 'phone_number' => random_int(903,964)
                     ." "
                     .random_int(1000000, 9999999),
-                'users_id' => mt_rand(1,9),
+                'user_id' => mt_rand(1,9),
             ]);
         }
 
