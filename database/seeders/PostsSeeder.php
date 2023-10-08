@@ -19,9 +19,9 @@ class PostsSeeder extends Seeder
         for ($i; $i < 100; $i++) {
             DB::table('posts')->insert([
                 'title' => Str::random(30),
-                'text' => Str::random(500),
+//                'text' => Str::random(500),
                 'likes' => mt_rand(100,1000),
-                'user_id' => mt_rand(1,9),
+//                'user_id' => mt_rand(1,9),
             ]);
         }
     }
