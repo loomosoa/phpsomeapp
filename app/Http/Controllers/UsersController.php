@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Services\SomeService;
 use Illuminate\Http\Request;
@@ -10,14 +12,21 @@ class UsersController extends BaseController {
 
 
 
-    public function index(Request $request, int $id){
+    public function index(Request $request){
 
         $service = new SomeService();
         $result = $service->getResult();
 
-        $user = User::find($id);
+//        $user = User::find($id);
 
-        return $user->email;
+        $users = User::all();
+//        $users = User::where('id','>',4)->count();
+
+//        foreach ($users as $user) {
+//            echo $user->email."<br>";
+//        }
+
+        return new UserCollection($users);
     }
 
 }
